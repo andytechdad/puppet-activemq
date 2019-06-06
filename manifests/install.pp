@@ -1,6 +1,6 @@
 class activemq::install(){
 
-    if $activemq::manager_user {
+    if $activemq::manage_user {
 
       group {$activemq::group: ensure => 'present'}
 
@@ -9,7 +9,8 @@ class activemq::install(){
         managehome => true,
         comment    => 'ActiveMQ user account managed by puppet activemq module',
         gid        => $activemq::group,
-        require    => Group[$activemq::group:]}
+        require    => Group[$activemq::group]
+      }
 
     }
 
